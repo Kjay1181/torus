@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <script src="p5/p5.min.js"></script>
+  </head>
+<body>
+<script>
+var w= window.innerWidth;
+var h= window.innerHeight;
+var img;
+function preload(){
+  img= loadImage("biggie.png");
+}
+function setup(){
+  createCanvas(w,h, WEBGL);
+
+}
+function draw(){
+  background(255);
+  var locX= mouseX- width/2;
+  var locY= mouseY-height/2;
+  pointLight(255,255,255,width,height,200);
+  directionalLight(255,0,0,-locX,-locY,-100);
+  // directionalLight(red, green, blue,x-axis,y-axis,z-axis)
+  specularMaterial(255);
+  noStroke();
+  
+// torus(radius of the ring, the radius, detailx, detaily)
+texture(img);
+torus(200,64,30,30)
+}
+</script>
+</body>
+</html>
